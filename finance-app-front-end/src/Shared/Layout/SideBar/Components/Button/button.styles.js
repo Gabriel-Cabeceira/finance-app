@@ -28,3 +28,22 @@ export const ButtonDiv = styled.button`
         color: ${fullWhite};
     }
 `;
+
+export const Description = styled.span`
+    display: block; /* Default display */
+
+    /* Media queries */
+
+        @media (max-width: 650px) {
+            display: none;
+        }
+
+        
+        // @media (min-width: 1201px) and (max-width: 1500px) {
+        //     display: block;
+        // }
+        // @media (min-width: 1501px) {
+        //     display: block;
+        // }
+
+`;

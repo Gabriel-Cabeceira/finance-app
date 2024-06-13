@@ -54,7 +54,7 @@ export default function Movimentacoes() {
 
             <Content>
                 <MovNavbar />
-                <Routes>
+                <Routes>    
                     <Route path="/despesas-fixas" element={<DespesasFixas />} />
                     <Route
                         path="/despesas-variaveis"

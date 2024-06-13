@@ -8,8 +8,18 @@ export const Container = styled.div`
     border-bottom: 2px solid ${red};
     background: #FFFFFF;
 
+        @media (max-width: 650px) {
+            width: 80%;
+        }
+
     .buttons-list {
         display: flex;
+
+        @media (max-width: 650px) {
+            width: 70%;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
     }
 
     .list-items {
@@ -18,6 +28,7 @@ export const Container = styled.div`
         margin: 0 1px 0 1px;
         background: ${lightGray};
         font-weight: bold;
+        font-size: 0.8em;
     }
 
     .link-list-items {

@@ -6,12 +6,22 @@ export const Divisor = styled.div`
     margin-bottom: 2em;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 650px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const Main = styled.main`
     width: 65%;
     height: 40vh;
-    overflow-y: auto; 
+    overflow-y: auto;
+
+    @media (max-width: 650px) {
+        width: 100%;
+    }
     
     /* Estilos para a barra de rolagem */
     &::-webkit-scrollbar {
@@ -48,4 +58,8 @@ export const Resume = styled.aside`
     background-color: ${lightGray};
     padding: 1em;
     height: 40vh;
+
+    @media (max-width: 650px) {
+        width: 100%;
+    }
 `;

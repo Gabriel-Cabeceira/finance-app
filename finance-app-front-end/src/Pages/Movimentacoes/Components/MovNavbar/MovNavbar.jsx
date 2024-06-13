@@ -18,17 +18,17 @@ export default function MovNavbar() {
         },
         {
             id: 3,
-            name: 'Despesas Fixas',
+            name: 'D.Fixas',
             link: '/movimentacoes/despesas-fixas'
         },
         {
             id: 4,
-            name: 'Despesas Variáveis',
+            name: 'D.Variáveis',
             link: '/movimentacoes/despesas-variaveis'
         },
         {
             id: 5,
-            name: 'Visão Geral',
+            name: 'Geral',
             link: '/movimentacoes/visao-geral'
         }
     ];

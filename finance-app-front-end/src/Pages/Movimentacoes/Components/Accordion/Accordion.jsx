@@ -23,7 +23,7 @@ export default function Accordion({ id, description, date, totalValue, subitems 
                     >
                         <div className="buttonInfo">
                             <Spans>{description}</Spans>
-                            <Spans>{date}</Spans>
+                            <Spans className="date-span">{date}</Spans>
                             <Spans>{totalValue}</Spans>
                         </div>
                     </Button>

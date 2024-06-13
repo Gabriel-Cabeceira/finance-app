@@ -1,5 +1,5 @@
 ;import { Link } from 'react-router-dom';
-import { ButtonDiv, Container } from "./button.styles";
+import { ButtonDiv, Container, Description } from "./button.styles";
 
 export default function Button({ description, link, icon }) {
   return (
@@ -7,7 +7,7 @@ export default function Button({ description, link, icon }) {
       <ButtonDiv>
         <Link className='button' to={link}>
           {icon}
-          {description}
+          <Description>{description}</Description>
         </Link>
       </ButtonDiv>
     </Container>

@@ -13,7 +13,15 @@ import {
     Input,
     Box,
 } from "@chakra-ui/react";
+import styled from "styled-components";
 import { format } from 'date-fns';
+
+// Styled component for ModalContent
+const StyledModalContent = styled(ModalContent)`
+    @media (max-width: 600px) {
+        margin: 2em;
+    }
+`;
 
 export default function ModalForm({ isOpen, onClose, onSubmit, title, type }) {
     const [mainDescription, setMainDescription] = useState("");
@@ -31,58 +39,16 @@ export default function ModalForm({ isOpen, onClose, onSubmit, title, type }) {
     };
 
     const handleSubmit = () => {
-        let formData;
-
         const formattedDate = format(new Date(mainDate), 'dd/MM/yyyy');
 
-        switch (type) {
-            case 'income':
-                formData = {
-                    income_description: mainDescription,
-                    income_date: formattedDate,
-                    income_items: subItems.map(item => ({
-                        income_item_description: item.subDescription,
-                        income_item_value: item.value
-                    }))
-                };
-                break;
-            case 'planning':
-                formData = {
-                    planning_description: mainDescription,
-                    planning_date: formattedDate,
-                    planning_items: subItems.map(item => ({
-                        planning_item_description: item.subDescription,
-                        planning_item_value: item.value
-                    }))
-                };
-                break;
-            case 'variable_expense':
-                formData = {
-                    variable_expense_description: mainDescription,
-                    variable_expense_date: formattedDate,
-                    variable_expense_items: subItems.map(item => ({
-                        variable_expense_item_description: item.subDescription,
-                        variable_expense_item_value: item.value
-                    }))
-                };
-                break;
-            case 'fixed_expense':
-                formData = {
-                    fixed_expense_description: mainDescription,
-                    fixed_expense_date: formattedDate,
-                    fixed_expense_items: subItems.map(item => ({
-                        fixed_expense_item_description: item.subDescription,
-                        fixed_expense_item_value: item.value
-                    }))
-                };
-                break;
-            default:
-                formData = {
-                    description: mainDescription,
-                    date: formattedDate,
-                    subitems: subItems
-                };
-        }
+        const formData = {
+            [`${type}_description`]: mainDescription,
+            [`${type}_date`]: formattedDate,
+            [`${type}_items`]: subItems.map(item => ({
+                [`${type}_item_description`]: item.subDescription,
+                [`${type}_item_value`]: item.value
+            }))
+        };
 
         onSubmit(formData);
         onClose();
@@ -91,7 +57,7 @@ export default function ModalForm({ isOpen, onClose, onSubmit, title, type }) {
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
-            <ModalContent>
+            <StyledModalContent>
                 <ModalHeader>{title}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
@@ -145,15 +111,10 @@ export default function ModalForm({ isOpen, onClose, onSubmit, title, type }) {
                             </Box>
                         ))}
                     </Box>
-                    <Button
-                        onClick={handleAddSubItem}
-                        colorScheme="blue"
-                        mt={4}
-                    >
+                    <Button onClick={handleAddSubItem} colorScheme="blue" mt={4}>
                         Adicionar Subitem
                     </Button>
                 </ModalBody>
-
                 <ModalFooter>
                     <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
                         Salvar
@@ -162,7 +123,7 @@ export default function ModalForm({ isOpen, onClose, onSubmit, title, type }) {
                         Cancelar
                     </Button>
                 </ModalFooter>
-            </ModalContent>
+            </StyledModalContent>
         </Modal>
     );
 }

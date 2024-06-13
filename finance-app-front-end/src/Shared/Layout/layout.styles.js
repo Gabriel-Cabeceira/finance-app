@@ -8,4 +8,8 @@ export const Main = styled.main`
 
 export const FlexContainer = styled.div`
     width: 100%;
+
+    @media (max-width: 650px) {
+        width: calc(100% - 50px);
+    }
 `

@@ -3,6 +3,16 @@ import styled from "styled-components";
 export const AccordionDiv = styled.div`
     width: 90%;
     margin: 1em 0;
+
+    @media (max-width: 650px) {
+        width: 100%;
+    }
+
+    .date-span {
+        @media (max-width: 650px) {
+            display: none;
+        }
+    }
 `;
 
 export const Button = styled.button`
